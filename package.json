@@ -12,7 +12,6 @@
   "author": "",
   "license": "BSD",
   "dependencies": {
-    "event-stream": "~3.0.15",
     "through": "~2.3.4",
     "bean": "~1.0.4",
     "hogan.js": "~2.0.0"
