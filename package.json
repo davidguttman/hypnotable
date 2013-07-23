@@ -1,0 +1,20 @@
+{
+  "name": "hypnotable",
+  "version": "0.0.0",
+  "description": "Streaming sortable tables",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "node_modules/.bin/coffee -o lib -c src",
+    "cw": "node_modules/.bin/coffee -o lib -cw src"
+  },
+  "repository": "",
+  "author": "",
+  "license": "BSD",
+  "dependencies": {
+    "event-stream": "~3.0.15",
+    "through": "~2.3.4",
+    "bean": "~1.0.4",
+    "hogan.js": "~2.0.0"
+  }
+}
