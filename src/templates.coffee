@@ -22,7 +22,7 @@ row = "
     <tr>
       {{#cells}}
         <td data-value='{{serialized}}', class='{{className}}'>
-          {{text}}
+          {{{text}}}
         </td>
       {{/cells}}
     </tr>
