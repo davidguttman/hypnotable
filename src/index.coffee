@@ -19,7 +19,7 @@ createRowElement = (str) ->
   tr.innerHTML = str
   return tr
 
-module.exports = (columns, objStream) ->
+module.exports = (columns) ->
   normalizeColumns columns
   
   html = templates.table.render columns: columns

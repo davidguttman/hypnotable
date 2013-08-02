@@ -15,7 +15,7 @@ module.exports = RowStream = (columns) ->
       cell.serialized = JSON.stringify cell.value
 
       if column.template
-        cell.text = column.template cell.value
+        cell.text = column.template cell.value, data
       else
         cell.text = cell.value
 
