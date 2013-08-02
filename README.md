@@ -23,5 +23,7 @@ Want a table? Have a stream of object data?
     var parser = JSONStream.parse([true]);
     stream.pipe(parser);
 
-    var ht = Hypnotable(columns, parser);
+    var ht = Hypnotable(columns);
     document.body.appendChild(ht.el);
+
+    parser.pipe(ht);

@@ -28,7 +28,6 @@ module.exports = (columns, objStream) ->
   $tbody = $table.querySelector 'tbody'
 
   rowStream = RowStream columns
-  objStream.pipe rowStream
 
   rowStream.on 'data', (cells) ->
     
@@ -38,7 +37,9 @@ module.exports = (columns, objStream) ->
 
   addSort $table
 
-  return el: $table
+  rowStream.el = $table
+
+  return rowStream
 
 normalizeColumns = (columns) ->
   for column in columns
