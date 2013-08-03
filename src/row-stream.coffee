@@ -21,4 +21,4 @@ module.exports = RowStream = (columns) ->
 
       return cell
 
-    @emit 'data', cells
+    @emit 'data', {cells:cells, obj:data}

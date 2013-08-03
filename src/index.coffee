@@ -19,7 +19,7 @@ createRowElement = (str) ->
   tr.innerHTML = str
   return tr
 
-module.exports = (columns) ->
+module.exports = (columns, rowFn) ->
   normalizeColumns columns
   
   html = templates.table.render columns: columns
@@ -29,10 +29,11 @@ module.exports = (columns) ->
 
   rowStream = RowStream columns
 
-  rowStream.on 'data', (cells) ->
-    
+  rowStream.on 'data', (data) ->
+    {cells, obj} = data
     html = templates.row.render cells: cells
     tr = createRowElement html
+    rowFn obj, tr if rowFn
     $tbody.appendChild tr
 
   addSort $table
