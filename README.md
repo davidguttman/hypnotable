@@ -28,3 +28,7 @@ Want a table? Have a stream of object data?
     document.body.appendChild(ht.el);
 
     parser.pipe(ht);
+
+## Example ##
+
+    npm run-script example
