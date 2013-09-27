@@ -8,12 +8,15 @@
     "compile": "node_modules/.bin/coffee -o lib -c src",
     "cw": "node_modules/.bin/coffee -o lib -cw src"
   },
-  "repository": "",
   "author": "",
   "license": "BSD",
   "dependencies": {
     "through": "~2.3.4",
     "bean": "~1.0.4",
     "hogan.js": "~2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:davidguttman/hypnotable.git"
   }
 }
