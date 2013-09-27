@@ -1,4 +1,5 @@
 # Hypnotable #
+![hypnotoad](http://i.imgur.com/1faEnTz.gif)
 
 Want a table? Have a stream of object data?
 
