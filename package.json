@@ -4,16 +4,13 @@
   "description": "Streaming sortable tables",
   "main": "index.js",
   "scripts": {
-    "example": "./node_modules/.bin/beefy example/basic.js",
-    "compile": "node_modules/.bin/coffee -o lib -c src",
-    "cw": "node_modules/.bin/coffee -o lib -cw src"
+    "example": "./node_modules/.bin/beefy example/basic.js"
   },
   "author": "",
   "license": "BSD",
   "dependencies": {
     "through": "~2.3.4",
-    "bean": "~1.0.4",
-    "hogan.js": "~2.0.0"
+    "bean": "~1.0.4"
   },
   "repository": {
     "type": "git",
@@ -22,6 +19,16 @@
   "devDependencies": {
     "browserify": "~2.29.1",
     "beefy": "~0.4.2",
-    "accounting": "~0.3.2"
+    "accounting": "~0.3.2",
+    "jade": "~0.35.0",
+    "simple-jadeify": "~2.0.1",
+    "coffeeify": "~0.5.2"
+  },
+  "browser": "./lib/index.coffee",
+  "browserify": {
+    "transform": [
+      "coffeeify",
+      "simple-jadeify"
+    ]
   }
 }

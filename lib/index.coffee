@@ -1,6 +1,9 @@
-templates = require './templates'
-RowStream = require './row-stream'
 bean = require 'bean'
+
+tableTemplate = require './table.jade'
+rowTemplate = require './row.jade'
+
+RowStream = require './row-stream.coffee'
 
 stringToElement = (str) ->
   clean = str.replace /(^\s+)|(\s+$)/g, ''
@@ -21,8 +24,8 @@ createRowElement = (str) ->
 
 module.exports = (columns, rowFn) ->
   normalizeColumns columns
-  
-  html = templates.table.render columns: columns
+
+  html = tableTemplate columns: columns
 
   $table = stringToElement html
   $tbody = $table.querySelector 'tbody'
@@ -31,7 +34,7 @@ module.exports = (columns, rowFn) ->
 
   rowStream.on 'data', (data) ->
     {cells, obj} = data
-    html = templates.row.render cells: cells
+    html = rowTemplate cells: cells
     tr = createRowElement html
     rowFn obj, tr if rowFn
     $tbody.appendChild tr
@@ -55,6 +58,8 @@ addSort = (table) ->
   bean.on table, 'click', 'th', (event) ->
     el = this
     className = el.getAttribute 'class'
+    console.log 'el', el
+    console.log 'className', className
     rows = [] 
     rows.push el for el in tbody.childNodes
 
@@ -66,6 +71,7 @@ addSort = (table) ->
 
     rows.sort (a, b) ->
       [av, bv] = [a, b].map (cell) ->
+
         val = cell.querySelector('.'+className).dataset.value
         try
           return JSON.parse val

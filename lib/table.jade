@@ -1,0 +1,7 @@
+table
+  thead
+      tr
+        each column in columns
+          th(class = column.className || column.property)
+            = column.title
+    tbody
