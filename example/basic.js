@@ -15,7 +15,10 @@ var columns = [
     title: 'Name'
   }, {
     property: 'login',
-    title: 'User Name'
+    title: 'User Name',
+    template: function(val) {
+      return '<a href="https://github.com/'+ val +'">' + val + '</a>'
+    }
   }, {
     property: 'followers',
     title: 'Followers',
