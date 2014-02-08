@@ -10,7 +10,9 @@
   "license": "BSD",
   "dependencies": {
     "through": "~2.3.4",
-    "bean": "~1.0.4"
+    "bean": "~1.0.4",
+    "simple-jadeify": "~2.0.1",
+    "coffeeify": "~0.5.2"
   },
   "repository": {
     "type": "git",
@@ -20,9 +22,7 @@
     "browserify": "~2.29.1",
     "beefy": "~0.4.2",
     "accounting": "~0.3.2",
-    "jade": "~0.35.0",
-    "simple-jadeify": "~2.0.1",
-    "coffeeify": "~0.5.2"
+    "jade": "~0.35.0"
   },
   "browser": "./lib/index.coffee",
   "browserify": {
