@@ -4,15 +4,16 @@
   "description": "Streaming sortable tables",
   "main": "index.js",
   "scripts": {
-    "example": "./node_modules/.bin/beefy example/basic.js"
+    "example": "beefy example/basic.js"
   },
   "author": "",
   "license": "BSD",
   "dependencies": {
     "through": "~2.3.4",
     "bean": "~1.0.4",
-    "simple-jadeify": "~2.0.1",
-    "coffeeify": "~0.5.2"
+    "coffeeify": "~0.5.2",
+    "jade": "~1.1.5",
+    "jadeify": "~2.1.1"
   },
   "repository": {
     "type": "git",
@@ -22,13 +23,13 @@
     "browserify": "~2.29.1",
     "beefy": "~0.4.2",
     "accounting": "~0.3.2",
-    "jade": "~0.35.0"
+    "event-stream": "~3.1.0"
   },
   "browser": "./lib/index.coffee",
   "browserify": {
     "transform": [
       "coffeeify",
-      "simple-jadeify"
+      "jadeify"
     ]
   }
 }
