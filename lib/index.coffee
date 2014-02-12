@@ -58,11 +58,8 @@ addSort = (table) ->
   bean.on table, 'click', 'th', (event) ->
     el = this
     className = el.getAttribute 'class'
-    console.log 'el', el
-    console.log 'className', className
     rows = [] 
     rows.push el for el in tbody.childNodes
-
 
     if className is curSort
       reverse = not reverse
