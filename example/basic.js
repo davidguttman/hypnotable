@@ -48,7 +48,10 @@ var columns = [
   }
 ]
 
-var ht = hypnotable(columns)
+var ht = hypnotable(columns, function(obj, tr) {
+  // optional fn gives you access to the object and the created row
+})
+
 document.body.appendChild(ht.el)
 
 es.readArray(ghUsers).pipe(ht)
