@@ -46,8 +46,14 @@ module.exports = (columns, rowFn) ->
   return rowStream
 
 normalizeColumns = (columns) ->
-  for column in columns
-    column.title ?= column.property
+  for column, i in columns
+    if typeof column.property is 'function'
+      column.className ?= 'ht-col-' + i
+      column.title ?= "Column #{i+1}"
+    else
+      column.title ?= column.property
+      column.className ?= 'ht-col-' + column.property
+      
 
 
 addSort = (table) ->
