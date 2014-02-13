@@ -1,53 +1,54 @@
 var hypnotable = require('../')
 
+var es = require('event-stream')
 var accounting = require('accounting')
-var es         = require('event-stream')
 
 var ghUsers    = require('./github.json')
 
-var formatNumber = function(val) {
-  return accounting.formatNumber(val)
-};
-
 var columns = [
   {
-    property: 'name',
-    title: 'Name'
-  }, {
-    property: 'login',
+    // Title: heading of the column
     title: 'User Name',
-    template: function(val) {
+    // Property: object key/val of interest
+    property: 'login',
+    // Template: custom display of the value
+    template: function(val, fullObj) {
       return '<a href="https://github.com/'+ val +'">' + val + '</a>'
     }
-  }, {
-    property: 'followers',
-    title: 'Followers',
-    template: formatNumber
-  }, {
-    property: 'following',
-    title: 'Following',
-    template: formatNumber
-  }, {
-    property: 'public_repos',
-    title: 'Repos'
-  }, {
-    property: 'location',
-    title: 'Location'
-  }, {
-    property: 'repos_per_follower',
+  }, 
+
+  // Omit title to default to property name
+  // Omit template to default to toString()
+  {
+    property: 'name'
+  }, 
+
+  // Property can also be a function
+  {
     title: 'Repos per Follower',
+    property: function(user) {
+      return user.public_repos / user.followers
+    },
     template: function(val) {
       return val.toFixed(3)
+    }
+  }, 
+
+  {
+    title: 'Repos',
+    property: 'public_repos'
+  }, 
+
+  {
+    title: 'Followers',
+    property: 'followers',
+    template: function (val, fullObj) {
+      return accounting.formatNumber(val)
     }
   }
 ]
 
-var stream = es.readArray(ghUsers)
-var tr = es.through(function(user) {
-  user.repos_per_follower = user.public_repos/user.followers
-  this.emit('data', user)
-})
-
 var ht = hypnotable(columns)
 document.body.appendChild(ht.el)
-stream.pipe(tr).pipe(ht)
+
+es.readArray(ghUsers).pipe(ht)
