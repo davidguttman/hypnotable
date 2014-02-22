@@ -1,5 +1,11 @@
 # Hypnotable #
-![hypnotoad](http://i.imgur.com/1faEnTz.gif)
+
+Easily create a table from a stream (or array) of objects.
+
+[![browser support](https://ci.testling.com/davidguttman/hypnotable.png)
+](https://ci.testling.com/davidguttman/hypnotable)
+
+# Example #
 
 Want a table? Have a stream of object data?
 
@@ -29,6 +35,14 @@ Want a table? Have a stream of object data?
 
     parser.pipe(ht);
 
-## Example ##
+To see a bit more look at `/example` or locally run
 
     npm run-script example
+
+# License #
+
+MIT
+
+---
+
+![hypnotoad](http://i.imgur.com/1faEnTz.gif)
