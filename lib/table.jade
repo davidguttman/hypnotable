@@ -2,6 +2,6 @@ table
   thead
       tr
         each column in columns
-          th(class = column.className || column.property)
+          th(class = column.className, data-class-name=column.className)
             = column.title
     tbody

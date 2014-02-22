@@ -63,7 +63,7 @@ addSort = (table) ->
 
   bean.on table, 'click', 'th', (event) ->
     el = this
-    className = el.getAttribute 'class'
+    className = el.dataset.className
     rows = [] 
     rows.push el for el in tbody.childNodes
 

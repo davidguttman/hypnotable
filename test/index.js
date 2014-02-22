@@ -20,12 +20,15 @@ window.document.body.appendChild(ht.el)
 
 test('table should sort', function(t) {
   var cell1 = ht.el.querySelector('tbody tr td')
-  t.ok(cell1.innerHTML === 'tb')
+  t.ok(cell1.innerHTML === 'tb', 'should start with insertion order')
 
-  eventFire(ht.el.querySelector('th'), 'click')
+  var header1 = ht.el.querySelector('th')
+  header1.classList.add('new-class')
+  
+  eventFire(header1, 'click')
  
   cell1 = ht.el.querySelector('tbody tr td')
-  t.ok(cell1.innerHTML === 'ta')
+  t.ok(cell1.innerHTML === 'ta', 'should sort by string field')
   t.end()
 })
   
