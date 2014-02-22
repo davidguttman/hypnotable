@@ -34,9 +34,11 @@ var columns = [
     }
   }, 
 
+  // Custom class name
   {
     title: 'Repos',
-    property: 'public_repos'
+    property: 'public_repos',
+    className: 'repositories'
   }, 
 
   {
