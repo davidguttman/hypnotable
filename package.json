@@ -4,7 +4,8 @@
   "description": "Streaming sortable tables",
   "main": "index.js",
   "scripts": {
-    "example": "beefy example/basic.js"
+    "example": "beefy example/basic.js",
+    "test-dev": "beefy test/index.js"
   },
   "author": "",
   "license": "BSD",
@@ -23,7 +24,8 @@
     "browserify": "~2.29.1",
     "beefy": "~0.4.2",
     "accounting": "~0.3.2",
-    "event-stream": "~3.1.0"
+    "event-stream": "~3.1.0",
+    "tape": "~2.5.0"
   },
   "browser": "./lib/index.coffee",
   "browserify": {
