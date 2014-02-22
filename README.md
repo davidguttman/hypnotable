@@ -7,42 +7,40 @@ Easily create a table from a stream (or array) of objects.
 
 # Example #
 
-Want a table? Have a stream of object data?
+```js
+var Hypnotable = require('hypnotable');
 
-    var Hypnotable = require('hypnotable');
+var hyperquest = require('hyperquest');
+var JSONStream = require('JSONStream');
+var accounting = require('accounting');
 
-    var hyperquest = require('hyperquest');
-    var JSONStream = require('JSONStream');
-    var accounting = require('accounting');
+columns = [
+  {
+    property: 'screenName',
+    title: 'Screen Name'
+  }, {
+    property: 'followers',
+    title: 'Follower Count',
+    template: accounting.formatNumber
+  }
+];
 
-    columns = [
-      {
-        property: 'screenName',
-        title: 'Screen Name'
-      }, {
-        property: 'followers',
-        title: 'Follower Count',
-        template: accounting.formatNumber
-      }
-    ];
+var stream = hyperquest('/api/accounts.json');
+var parser = JSONStream.parse([true]);
+stream.pipe(parser);
 
-    var stream = hyperquest('/api/accounts.json');
-    var parser = JSONStream.parse([true]);
-    stream.pipe(parser);
+var ht = Hypnotable(columns);
+document.body.appendChild(ht.el);
 
-    var ht = Hypnotable(columns);
-    document.body.appendChild(ht.el);
+parser.pipe(ht);
+```
 
-    parser.pipe(ht);
-
-To see a bit more look at `/example` or locally run
+To see a bit more look at `/example/basic.js` or locally run:
 
     npm run-script example
 
 # License #
 
 MIT
-
----
 
 ![hypnotoad](http://i.imgur.com/1faEnTz.gif)
