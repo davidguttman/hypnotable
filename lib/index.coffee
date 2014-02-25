@@ -1,7 +1,6 @@
 bean = require 'bean'
 
 tableTemplate = require './table.jade'
-rowTemplate = require './row.jade'
 
 RowStream = require './row-stream.coffee'
 
@@ -17,11 +16,6 @@ stringToElement = (str) ->
   else
     return els
 
-createRowElement = (str) ->
-  tr = document.createElement 'tr'
-  tr.innerHTML = str
-  return tr
-
 module.exports = (columns, rowFn) ->
   normalizeColumns columns
 
@@ -34,8 +28,15 @@ module.exports = (columns, rowFn) ->
 
   rowStream.on 'data', (data) ->
     {cells, obj} = data
-    html = rowTemplate cells: cells
-    tr = createRowElement html
+
+    tr = document.createElement 'tr'
+    for cell in cells
+      td = document.createElement 'td'
+      td.classList.add cell.className
+      td.dataset.value = cell.serialized
+      td.innerHTML = cell.text
+      tr.appendChild td
+
     rowFn obj, tr if rowFn
     $tbody.appendChild tr
 
