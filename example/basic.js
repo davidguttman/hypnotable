@@ -15,13 +15,13 @@ var columns = [
     template: function(val, fullObj) {
       return '<a href="https://github.com/'+ val +'">' + val + '</a>'
     }
-  }, 
+  },
 
   // Omit title to default to property name
   // Omit template to default to toString()
   {
     property: 'name'
-  }, 
+  },
 
   // Property can also be a function
   {
@@ -32,14 +32,14 @@ var columns = [
     template: function(val) {
       return val.toFixed(3)
     }
-  }, 
+  },
 
   // Custom class name
   {
     title: 'Repos',
     property: 'public_repos',
     className: 'repositories'
-  }, 
+  },
 
   {
     title: 'Followers',

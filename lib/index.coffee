@@ -54,8 +54,6 @@ normalizeColumns = (columns) ->
     else
       column.title ?= column.property
       column.className ?= 'ht-col-' + column.property
-      
-
 
 addSort = (table) ->
   tbody = table.querySelector 'tbody'
@@ -65,7 +63,7 @@ addSort = (table) ->
   bean.on table, 'click', 'th', (event) ->
     el = this
     className = el.dataset.className
-    rows = [] 
+    rows = []
     rows.push el for el in tbody.childNodes
 
     if className is curSort
@@ -81,7 +79,7 @@ addSort = (table) ->
           return JSON.parse val
         catch err
           return val
-      
+
       if reverse
         r = -1
       else

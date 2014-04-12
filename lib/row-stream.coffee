@@ -4,11 +4,11 @@ module.exports = RowStream = (columns) ->
 
     cells = columns.map (column) ->
       cell = {}
-      
+
       if typeof column.property is 'function'
         cell.value = column.property data
       else
-        cell.value = data[column.property]   
+        cell.value = data[column.property]
 
       if column.className
         cell.className = column.className
