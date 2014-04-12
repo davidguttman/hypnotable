@@ -1,3 +1,7 @@
+.ht-table th {
+  cursor: pointer;
+}
+
 .ht-table th.ht-sorted:after {
   content: ' ▲';
   font-size: 50%;

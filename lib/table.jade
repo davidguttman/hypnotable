@@ -3,7 +3,6 @@ table.ht-table
       tr
         each column in columns
           th( class = column.className,
-              data-class-name = column.className,
-              style = 'cursor: pointer' )
+              data-class-name = column.className )
             = column.title
     tbody
