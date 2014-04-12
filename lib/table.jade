@@ -2,6 +2,8 @@ table
   thead
       tr
         each column in columns
-          th(class = column.className, data-class-name=column.className)
+          th( class = column.className,
+              data-class-name = column.className,
+              style = 'cursor: pointer' )
             = column.title
     tbody
