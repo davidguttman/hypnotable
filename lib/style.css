@@ -1,0 +1,9 @@
+.ht-table th.ht-sorted:after {
+  content: ' ▲';
+  font-size: 50%;
+}
+
+.ht-table th.ht-reverse:after {
+  content: ' ▼';
+  font-size: 50%;
+}

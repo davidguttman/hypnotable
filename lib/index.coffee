@@ -4,6 +4,8 @@ tableTemplate = require './table.jade'
 
 RowStream = require './row-stream.coffee'
 
+require './style.css'
+
 stringToElement = (str) ->
   clean = str.replace /(^\s+)|(\s+$)/g, ''
   div = document.createElement 'div'
@@ -57,6 +59,7 @@ normalizeColumns = (columns) ->
 
 addSort = (table) ->
   tbody = table.querySelector 'tbody'
+  ths = table.querySelectorAll 'th'
   curSort = null
   reverse = false
 
@@ -64,12 +67,17 @@ addSort = (table) ->
     el = this
     className = el.dataset.className
     rows = []
-    rows.push el for el in tbody.childNodes
+    rows.push tr for tr in tbody.childNodes
 
     if className is curSort
       reverse = not reverse
     else
       reverse = false
+
+    th.classList.remove 'ht-sorted', 'ht-reverse' for th in ths
+
+    el.classList.add 'ht-sorted'
+    el.classList.add 'ht-reverse' if reverse
 
     rows.sort (a, b) ->
       [av, bv] = [a, b].map (cell) ->
