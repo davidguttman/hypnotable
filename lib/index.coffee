@@ -99,6 +99,6 @@ addSort = (table) ->
 
     curSort = className
 
-    tbody.innerHTML = ''
     for row in rows
+      row.parentNode.removeChild row
       tbody.appendChild row
