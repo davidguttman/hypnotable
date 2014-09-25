@@ -1,6 +1,6 @@
 {
   "name": "hypnotable",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Streaming sortable tables",
   "main": "index.js",
   "scripts": {
