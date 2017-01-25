@@ -11,19 +11,19 @@
   "author": "",
   "license": "BSD",
   "dependencies": {
-    "through": "~2.3.4",
     "bean": "~1.0.4",
+    "browserify": "^3.46.1",
     "coffeeify": "~0.5.2",
+    "cssify": "^0.5.0",
     "jade": "~1.1.5",
     "jadeify": "~2.1.1",
-    "cssify": "^0.5.0"
+    "through": "~2.3.4"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:davidguttman/hypnotable.git"
   },
   "devDependencies": {
-    "browserify": "~2.29.1",
     "beefy": "~0.4.2",
     "accounting": "~0.3.2",
     "event-stream": "~3.1.0",
